@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+
+    <!-- Page Title -->
+    {% block title %}
+    <title>Home</title>
+    {% endblock %}
+
+    <!-- Static CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static '../static/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+
+
+{% block content %}
+<div class="container p-5">
+    {% if latest_question_list %}
+    <ol>
+        {% for q in latest_question_list %}
+        <li class="fs-4"><a class="text-decoration-none" href="{% url 'myapp:detail' q.id %}">{{q.question}}</a></li>
+        {% endfor %}
+    </ol>
+    {% else %}
+    <p>No Polling yet</p>
+    {% endif %}
+</div>
+{% endblock %}
+
+
