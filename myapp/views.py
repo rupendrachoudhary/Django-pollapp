@@ -7,7 +7,7 @@ from .models import PollQuestion, PollAnswer
 
 
 class IndexView(generic.ListView):
-    template_name = '../templates/index.html'
+    template_name = 'myapp/index.html'
     context_object_name = 'latest_question_list'
 
     def get_queryset(self):
@@ -17,7 +17,7 @@ class IndexView(generic.ListView):
 
 class DetailView(generic.DetailView):
     model = PollQuestion
-    template_name = '../templates/detail.html'
+    template_name = 'myapp/detail.html'
 
     def get_queryset(self):
         """
@@ -30,17 +30,17 @@ class DetailView(generic.DetailView):
 
 class ResultsView(generic.DetailView):
     model = PollQuestion
-    template_name = '../templates/results.html'
+    template_name = 'myapp/results.html'
 
 
 def vote(request, question_id):
-    vote_question = get_object_or_404(PollQuestion, pk=question_id)
+    pollquestion = get_object_or_404(PollQuestion, pk=question_id)
     try:
-        selected_choice = vote_question.choices.get(pk=request.POST['choice'])
+        selected_choice = pollquestion.choices.get(pk=request.POST['choice'])
     except(KeyError, PollAnswer.DoesNotExist):
         # Redisplay the question voting page because of no choice option selected
         vote_dict = {
-            'vote_question': vote_question,
+            'pollquestion': pollquestion,
             'error_message': "You didn't selected any choice.",
         }
         return render(request, 'myapp/detail.html', vote_dict)
@@ -51,4 +51,4 @@ def vote(request, question_id):
         # Always return an HttpResponseRedirect after successfully dealing
         # with POST data. This prevents data from being posted twice if a
         # user hits the Back button.
-        return HttpResponseRedirect(reverse('myapp:results', args=(vote_question.id,)))
+        return HttpResponseRedirect(reverse('myapp:results', args=(pollquestion.id,)))

@@ -1,8 +1,8 @@
 {% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Page Title -->
     {% block title %}
@@ -13,10 +13,15 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
     <!-- Static CSS -->
-    <link rel="stylesheet" type="text/css" href="{% static '../static/style.css' %}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   <!-- <link rel="stylesheet" type="text/css" href="{% static 'myapp/style.css' %}">  -->
+    
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
 
 
+{% block css %}
+
+{% endblock %}
 </head>
 
 
@@ -54,13 +59,13 @@
             </ul>
             <form class="d-flex">
                 <input class="form-control me-2" type="text" placeholder="Search">
-                <button class="btn btn-success" type="button">Search</button>
+                <button class="btn btn-primary" type="button">Search</button>
             </form>
         </div>
     </div>
 </nav>
 
-<div class="container-fluid p-2  bg-success text-white text-center">
+<div class="container-fluid p-2  bg-primary text-white text-center">
     <h1>Django, Poll Project</h1>
     <p>Welcome to the poll project</p>
 </div>
@@ -75,18 +80,18 @@
 
 
 <!-- Footer -->
-<footer class="text-center text-white bg-success" >
+<footer class="text-center text-white bg-primary" >
     <!-- Grid container -->
     <div class="container p-3 pb-0">
         <!-- Section: Social media -->
-        <section class="mb-4">
+        <section class="mb-3">
             <!-- Facebook -->
             <a
-                    class="btn btn-primary  m-1 rounded-circle"
+                    class="btn btn-primary m-1 rounded-circle"
                     style="background-color: #3b5998;"
                     href="https://m.facebook.com/laymentogeeks/"
                     role="button"
-            ><i class="fa fa-facebook-f"></i
+            ><i class="fab fa-facebook-f"></i
             ></a>
 
             <!-- Twitter -->
@@ -95,7 +100,7 @@
                     style="background-color: #55acee;"
                     href="https://twitter.com/iamrupie"
                     role="button"
-            ><i class="fa fa-twitter"></i
+            ><i class="fab fa-twitter"></i
             ></a>
 
 
@@ -105,7 +110,7 @@
                     style="background-color: #333333;"
                     href="https://github.com/rupendrachoudhary"
                     role="button"
-            ><i class="fa fa-github"></i
+            ><i class="fab fa-github"></i
             ></a>
         </section>
         <!-- Section: Social media -->

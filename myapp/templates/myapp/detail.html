@@ -1,0 +1,43 @@
+{% extends 'myapp/base.html' %}
+{% load static %}
+
+{% block title %}
+<title>Detail page</title>
+{% endblock %}
+
+
+
+{% block content %}
+
+
+
+<form action="{% url 'myapp:vote' pollquestion.id %}" method="post">
+    <!-- Cross Site Request Forgery Protection -->
+    {% csrf_token %}
+
+    <div class="container">
+      
+        <h3 class="text-secondary p-3 mb-2">{{pollquestion.question}}</h3> 
+        
+        <div class="form-check">
+           {% if error_message %}
+            <p class="alert alert-danger"><strong>{{error_message}}</strong></p>
+            {% endif %}
+
+            {% for choice in pollquestion.choices.all %}
+            <input class="form-check-input mb-1 mx-2" type="radio" name="choice" id="choice{{forloop.counter}}"
+                   value="{{choice.id}}">
+            <label class="form-check-label mb-1 mx-2" for="choice{{forloop.counter}}">{{choice.answer}}</label>
+            <br>
+            {% endfor %}
+            <br>
+            <button class="btn btn-primary btn-sm mx-2" type="submit" value="vote"><i class="fa-solid fa-square-poll-vertical "></i>Vote</button>
+            <a class="btn btn-warning btn-sm " href="{% url 'myapp:results' pollquestion.id %}">Results</a>
+
+        </div>
+        <br>
+        
+    </div>
+
+</form>
+{% endblock %}

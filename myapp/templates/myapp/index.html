@@ -1,0 +1,42 @@
+{% extends 'myapp/base.html' %}
+{% load static %}
+
+    <!-- Page Title -->
+    {% block title %}
+    <title>Home</title>
+    {% endblock %}
+
+    <!-- Static CSS -->
+    {% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'myapp/style.css' %}">
+    {% endblock %}
+
+
+
+{% block content %}
+<div class="container p-5">
+    {% if latest_question_list %}
+
+    <table class="table table-hover">
+        <tbody>
+        {% for q in latest_question_list %}
+            <tr>
+                <td>
+       
+                       <a class="text-decoration-none" href="{% url 'myapp:detail' q.id %}">{{q.question}}</a>
+                </td>
+            </tr>
+        {% endfor %}
+
+        </tbody>
+    </table>
+    
+    {% else %}
+    
+    <p>No Polling yet</p>
+    
+    {% endif %}
+</div>
+{% endblock %}
+
+
