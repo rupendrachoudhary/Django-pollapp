@@ -2,9 +2,7 @@
 {% load static %}
 
     <!-- Page Title -->
-    {% block title %}
-    <title>Home</title>
-    {% endblock %}
+    {% block title %} Home {% endblock %}
 
     <!-- Static CSS -->
     {% block css %}
@@ -23,7 +21,7 @@
             <tr>
                 <td>
        
-                       <a class="text-decoration-none" href="{% url 'myapp:detail' q.id %}">{{q.question}}</a>
+                       <a href="{% url 'myapp:detail' q.id %}">{{q.question}}</a>
                 </td>
             </tr>
         {% endfor %}

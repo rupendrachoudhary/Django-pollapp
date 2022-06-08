@@ -4,6 +4,11 @@ from django.urls import reverse
 from django.views import generic
 from django.utils import timezone
 from .models import PollQuestion, PollAnswer
+from django.views.generic.base import TemplateView
+
+
+class HomePage(TemplateView):
+    template_name = 'myapp/home.html'
 
 
 class IndexView(generic.ListView):
@@ -25,7 +30,6 @@ class DetailView(generic.DetailView):
         published yet)
         """
         return PollQuestion.objects.filter(question_date__lte=timezone.now())
-
 
 
 class ResultsView(generic.DetailView):

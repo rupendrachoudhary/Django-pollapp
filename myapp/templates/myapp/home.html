@@ -1,0 +1,26 @@
+{% extends 'myapp/base.html' %}
+{% load static %}
+
+{% block title %}
+Home Page
+{% endblock %}
+
+
+<!-- Static CSS -->
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'myapp/style.css' %}">
+{% endblock css %}
+
+
+{% block content %}
+<div class="container-fluid page-image">
+    <div class="poll-text">
+        <h2>Welcome to The Polling!</h2>
+        <h5 class="text-center">Register yourself to start polling!</h5>
+        <hr>
+        <div class="text-center">
+        <a class="btn btn-light btn-md " href="/registration/" role="button">Polling Registration!</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
