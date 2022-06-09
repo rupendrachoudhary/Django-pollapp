@@ -12,7 +12,7 @@
 
 
 {% block content %}
-<!-- {% if user.is_authenticated %} -->
+ {% if user.is_authenticated %}
 <br>
 <h4 class="text-center">Hi {{ user.username }}! Your voice matter </h4>
 <p class="text-center">Enjoy voting</p>
@@ -42,7 +42,7 @@
     {% endif %}
 </div>
 <br><br><br>
-<!--
+
 {% else %}
 <br>
 <div class="container">
@@ -50,7 +50,7 @@
     <p><a href="{% url 'login' %}">Log in</a></p>
 </div>
 <br><br><br><br><br><br><br><br>
-{% endif %} -->
+{% endif %}
 {% endblock %}
 
 

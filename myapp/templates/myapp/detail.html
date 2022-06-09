@@ -10,6 +10,7 @@ Detail page
 {% endblock css %}
 
 {% block content %}
+{% if user.is_authenticated %}
 <br><br>
 <div class="container ">
 <form action="{% url 'myapp:vote' pollquestion.id %}" method="post">
@@ -44,4 +45,12 @@ Detail page
 </form>
     <br><br><br><br>
 </div>
+{% else %}
+<br>
+<div class="container">
+  <p>You are not logged in</p>
+    <p><a href="{% url 'login' %}">Log in</a></p>
+</div>
+<br><br><br><br><br><br><br><br>
+{% endif %}
 {% endblock %}

@@ -15,18 +15,12 @@ class HomePage(TemplateView):
 
 
 class IndexView(generic.ListView):
-    if User.is_authenticated:
-        template_name = 'myapp/index.html'
-        context_object_name = 'latest_question_list'
+    template_name = 'myapp/index.html'
+    context_object_name = 'latest_question_list'
 
-        def get_queryset(self):
-            """Return the last 6 published questions(not including any future dated question)"""
-            return PollQuestion.objects.filter(question_date__lte=timezone.now()).order_by('-question_date')[:6]
-
-    else:
-        reverse_lazy('login')
-
-
+    def get_queryset(self):
+        """Return the last 6 published questions(not including any future dated question)"""
+        return PollQuestion.objects.filter(question_date__lte=timezone.now()).order_by('-question_date')[:6]
 
 
 class DetailView(generic.DetailView):
