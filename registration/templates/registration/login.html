@@ -1,19 +1,17 @@
 {% extends 'myapp/base.html' %}
 {% load static %}
-
 {% block title %}
-Registration Page
+Login Page
 {% endblock %}
 
 {% block css %}
-
     <link rel="stylesheet" type="text/css" href="{% static 'myapp/style.css' %}">
-    {% endblock %}
+{% endblock css %}
+
 
 <!-- loading Crispy -->
 {% load crispy_forms_filters %}
 {% load crispy_forms_tags %}
-
 
 {% block content %}
 <br><br>
@@ -21,8 +19,10 @@ Registration Page
 <form class="form-group" method="POST">
     {% csrf_token %}
     {{ form|crispy }}
-    <button class="btn btn-primary" type="submit">Register</button>
+    <br>
+    <p>Don't have an account? Register <a href="/registration" class="text-decoration-none">here</a></p>
+    <button class="btn btn-primary" type="submit">Login</button>
 </form>
 </div>
-<br><br><br>
+<br><br><br><br>
 {% endblock %}

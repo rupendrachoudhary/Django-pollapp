@@ -1,4 +1,5 @@
 {% extends 'myapp/base.html' %}
+{% load static %}
 
 
 {% block title %}
@@ -6,9 +7,13 @@ Result Page
 {% endblock %}
 
 
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'myapp/style.css' %}">
+{% endblock css %}
+
 
 {% block content %}
-
+<br>
     <div class="container">
     
     <h3 class="my-4 mx-2">{{pollquestion.question}}</h3>
@@ -31,7 +36,7 @@ Result Page
     <a class="btn btn-warning btn-sm" href="{% url 'myapp:index' %}">Back to Polling</a>
 
 </div>
-
+<br><br><br><br>
 {% endblock %}
 
 

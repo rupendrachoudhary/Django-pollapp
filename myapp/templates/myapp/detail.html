@@ -10,6 +10,8 @@ Detail page
 {% endblock css %}
 
 {% block content %}
+<br><br>
+<div class="container ">
 <form action="{% url 'myapp:vote' pollquestion.id %}" method="post">
     <!-- Cross Site Request Forgery Protection -->
     {% csrf_token %}
@@ -40,6 +42,6 @@ Detail page
     </div>
 
 </form>
-
-
+    <br><br><br><br>
+</div>
 {% endblock %}

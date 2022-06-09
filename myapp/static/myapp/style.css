@@ -1,7 +1,10 @@
-td a {
+a {
 text-decoration:none;
 }
+.bdr{
+border-top:3px solid rgb(120,31,27);
 
+}
 .page-image{
 background-image:url('images/background1.jpg');
 background-size:cover;
@@ -10,10 +13,16 @@ width:100%;
 margin-top:;
 position:relative;
 }
-
-body{
-background-color:;
+.bgcolor,.pollbtn , .login-button{
+background-color:rgb(120,31,27);
 }
+.pollbtn , .login-button{
+color:#fff;
+}
+.pollreg{
+color:rgb(120,31,27);
+}
+
 .poll-text{
 position:absolute;
 top:50px;
@@ -21,4 +30,16 @@ right:160px;
 color:white;
 }
 
+.search-button{
+background:transparent;
+border:none;
+outline:none;
+}
+.search-button img{
+width:25px;
+height:25px;
+object-fit:cover;
+position:relative;
+right:50px;
+}
 

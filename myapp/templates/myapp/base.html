@@ -1,13 +1,16 @@
 {% load static %}
+
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
+    <link rel="shortcut icon" href="#">
+
     <!-- Page Title -->
     <title>
-    {% block title %} Django {% endblock %}
+        {% block title %} Django {% endblock %}
     </title>
 
     <!-- Bootstrap 5 -->
@@ -15,24 +18,22 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
     <!-- Static CSS -->
-   <!-- <link rel="stylesheet" type="text/css" href="{% static 'myapp/style.css' %}">  -->
-    
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- <link rel="stylesheet" type="text/css" href="{% static 'myapp/style.css' %}">  -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
 
 
-{% block css %}
+    {% block css %}
 
-{% endblock %}
+    {% endblock %}
+
 </head>
 
-
 <body>
-
-
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="{% url 'myapp:index' %}">Computer
+        <a class="navbar-brand" href="/">Computer
             Science Hub</a>
 
 
@@ -50,7 +51,7 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0)">Projects</a>
+                    <a class="nav-link" href="https://docs.djangoproject.com/en/4.0/intro/tutorial01/">Projects</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="https://laymentogeeks.wordpress.com/">Blog</a>
@@ -58,18 +59,26 @@
                 <li class="nav-item">
                     <a class="nav-link" href="https://laymentogeeks.wordpress.com/contact/">Contact me</a>
                 </li>
+
             </ul>
+
             <form class="d-flex">
-                <input class="form-control me-2" type="text" placeholder="Search">
-                <button class="btn btn-primary" type="button">Search</button>
+                <a href="/login"><button class="btn login-button" type="button">Login</button></a>
             </form>
+
         </div>
     </div>
 </nav>
 
-<div class="container-fluid p-2 bg-primary text-white  text-center">
+<div class="container-fluid p-2 bgcolor text-white  text-center">
     <h1>Django, Poll Project</h1>
     <p>Welcome to the poll project</p>
+    <div class="container">
+            <form class="d-flex">
+                <input class="form-control me-2" type="text" placeholder="Search your poll question here">
+                <button class="btn search-button " type="button"><img src="../../static/myapp/images/search.png"></button>
+            </form>
+            </div>
 </div>
 
 
@@ -78,14 +87,13 @@
 {% block content %} {% endblock %}
 
 
-
 <!-- Latest compiled JavaScript -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
 <!-- Footer -->
-<footer class="text-center text-white bg-primary " >
+<footer class="text-center text-white bgcolor ">
     <!-- Grid container -->
-    <div class="container p-3 pb-0">
+    <div class="container-fluid p-3 pb-0">
         <!-- Section: Social media -->
         <section class="mb-3">
             <!-- Facebook -->
@@ -122,13 +130,11 @@
 
     <!-- Copyright -->
     <div class="text-center p-3 bg-dark">
-        © 2022 Copyright :
+        &copy 2022 Copyright :
         <a class="text-white text-decoration-none" href="https://laymentogeeks.wordpress.com/">Computer Science Hub</a>
     </div>
     <!-- Copyright -->
 </footer>
 
 </body>
-
-
 </html>

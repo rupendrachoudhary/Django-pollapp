@@ -8,7 +8,7 @@ def registration(request):
         if form.is_valid():
             form.save()
 
-        return redirect('/')
+        return redirect('/poll')
 
     else:
         form = RegistrationForm(request.POST)
