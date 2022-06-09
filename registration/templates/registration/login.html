@@ -13,12 +13,15 @@ Login Page
 {% load crispy_forms_filters %}
 {% load crispy_forms_tags %}
 
+<!--Django by default will look within a templates folder called registration for auth templates.
+The login template is called login.html. -->
+
 {% block content %}
 <br><br>
 <div class="container">
 <form class="form-group" method="POST">
     {% csrf_token %}
-    {{ form|crispy }}
+    {{ form | crispy }}
     <br>
     <p>Don't have an account? Register <a href="/registration" class="text-decoration-none">here</a></p>
     <button class="btn btn-primary" type="submit">Login</button>

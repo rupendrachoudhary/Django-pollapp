@@ -1,10 +1,19 @@
+*{
+font-family: "Roboto","Lucida Grande","DejaVu Sans","Bitstream Vera Sans",Verdana,Arial,sans-serif;
+}
+
+
 a {
 text-decoration:none;
 }
 .bdr{
 border-top:3px solid rgb(120,31,27);
-
 }
+
+
+
+
+
 .page-image{
 background-image:url('images/background1.jpg');
 background-size:cover;
@@ -13,10 +22,10 @@ width:100%;
 margin-top:;
 position:relative;
 }
-.bgcolor,.pollbtn , .login-button{
+.bgcolor,.pollbtn , .login-button , .logout-button{
 background-color:rgb(120,31,27);
 }
-.pollbtn , .login-button{
+.pollbtn , .login-button, .logout-button{
 color:#fff;
 }
 .pollreg{

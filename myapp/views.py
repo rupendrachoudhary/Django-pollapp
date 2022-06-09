@@ -5,6 +5,9 @@ from django.views import generic
 from django.utils import timezone
 from .models import PollQuestion, PollAnswer
 from django.views.generic.base import TemplateView
+from django.contrib.auth.models import User
+from django.shortcuts import redirect
+from django.urls import reverse_lazy
 
 
 class HomePage(TemplateView):
@@ -12,12 +15,18 @@ class HomePage(TemplateView):
 
 
 class IndexView(generic.ListView):
-    template_name = 'myapp/index.html'
-    context_object_name = 'latest_question_list'
+    if User.is_authenticated:
+        template_name = 'myapp/index.html'
+        context_object_name = 'latest_question_list'
 
-    def get_queryset(self):
-        """Return the last 6 published questions(not including any future dated question)"""
-        return PollQuestion.objects.filter(question_date__lte=timezone.now()).order_by('-question_date')[:6]
+        def get_queryset(self):
+            """Return the last 6 published questions(not including any future dated question)"""
+            return PollQuestion.objects.filter(question_date__lte=timezone.now()).order_by('-question_date')[:6]
+
+    else:
+        reverse_lazy('login')
+
+
 
 
 class DetailView(generic.DetailView):

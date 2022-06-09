@@ -17,11 +17,14 @@ from django.contrib import admin
 from django.urls import include, path
 from registration import views as v
 from myapp import views
+from registration.views import SignUpView
 
 urlpatterns = [
     path('', views.HomePage.as_view(), name="home"),
     path('poll/', include('myapp.urls')),
-    path('registration/', v.registration, name="registration"),
+    path("registration/", SignUpView.as_view(), name="registration"),
+   # path('registration/', v.registration, name="registration"),
     path('admin/', admin.site.urls),
+    #To use the auth app we need to add it to our project-level urls.py file.
     path('', include('django.contrib.auth.urls')),
 ]

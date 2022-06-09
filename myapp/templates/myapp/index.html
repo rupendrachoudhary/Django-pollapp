@@ -12,6 +12,11 @@
 
 
 {% block content %}
+<!-- {% if user.is_authenticated %} -->
+<br>
+<h4 class="text-center">Hi {{ user.username }}! Your voice matter </h4>
+<p class="text-center">Enjoy voting</p>
+
 <br>
 <div class="container p-5">
     {% if latest_question_list %}
@@ -37,6 +42,15 @@
     {% endif %}
 </div>
 <br><br><br>
+<!--
+{% else %}
+<br>
+<div class="container">
+  <p>You are not logged in</p>
+    <p><a href="{% url 'login' %}">Log in</a></p>
+</div>
+<br><br><br><br><br><br><br><br>
+{% endif %} -->
 {% endblock %}
 
 
