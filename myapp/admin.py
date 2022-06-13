@@ -6,6 +6,7 @@ admin.site.site_header = "Polling Admin"
 admin.site.site_title = "Polling project Admin"
 admin.site.index_title = "Welcome to the Polling Admin Section"
 
+
 class PollAnswerInline(admin.TabularInline):
     model = PollAnswer
     extra = 3

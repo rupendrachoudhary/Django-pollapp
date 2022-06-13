@@ -20,7 +20,7 @@ class IndexView(generic.ListView):
 
     def get_queryset(self):
         """Return the last 6 published questions(not including any future dated question)"""
-        return PollQuestion.objects.filter(question_date__lte=timezone.now()).order_by('-question_date')[:6]
+        return PollQuestion.objects.filter(question_date__lte=timezone.now()).order_by('-question_date')[:10]
 
 
 class DetailView(generic.DetailView):

@@ -59,6 +59,14 @@
                 <li class="nav-item">
                     <a class="nav-link" href="https://laymentogeeks.wordpress.com/contact/">Contact me</a>
                 </li>
+                {% if user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'myapp:index' %}">Polls</a>
+                </li>
+
+                {% endif %}
+
+
 
             </ul>
 

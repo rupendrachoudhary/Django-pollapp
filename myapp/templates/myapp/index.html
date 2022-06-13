@@ -14,7 +14,7 @@
 {% block content %}
  {% if user.is_authenticated %}
 <br>
-<h4 class="text-center">Hi {{ user.username }}! Your voice matter </h4>
+<h4 class="text-center">Hi {{ user.username|title }}! Your voice matters </h4>
 <p class="text-center">Enjoy voting</p>
 
 <br>
